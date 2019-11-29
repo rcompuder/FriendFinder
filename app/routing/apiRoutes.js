@@ -1,22 +1,29 @@
-const friends = require('../data/friends.js');
-const server = require('../../server.js');
+var friendsData = require("../data/friends");
 
-module.exports = function(app){
-	let user;
-	app.post("/api/friends", function (req, res) {
-		module.exports.user = req.body;
-		friends.array.push(req.body);
-		console.log(`${req.body.name} successfully added!`)
-		res.json({});
-	});
+module.exports = function(app) {
 
-	app.get("/newFriend", function (req,res) {
-		let newFriend = server.lookForFriends();
-		res.json(bestFriend);
+  app.get("/api/friends", function(req, res) {
+    res.json(friendsData);
+  });
 
-	});
-
-	app.get("/api/:friends?", function(req, res) {
-	  res.json(friends.array);
-	});
+  app.post("/api/friends", function(req, res) {
+      let lowestScore = -1;
+      let smallestIndex = -1;
+      for (let i=0; i<friendsData.length; i++){
+        let scoreDifference = 0;
+        for(let j=0; j<10; j++){
+          scoreDifference = scoreDifference + Math.abs(friendsData[i].scores[j] - req.body.scores[j]);
+        }
+        if (lowestScore === -1){
+          lowestScore = scoreDifference
+          smallestIndex = i;
+        }else if (scoreDifference <= lowestScore){
+          lowestScore = scoreDifference;
+          smallestIndex = i;
+        }
+        console.log(`score difference ${i} is ${scoreDifference}`);
+      }
+      friendsData.push(req.body);
+      res.json(friendsData[smallestIndex]);
+  });
 }
