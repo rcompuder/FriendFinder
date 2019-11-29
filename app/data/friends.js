@@ -3,7 +3,7 @@ var friendsList = [
     {
       name: "Cardi B",
       photo: "https://vengeancemag.com/wp-content/uploads/2018/01/cardib_zpsbnheoxld.jpg",
-      scores: [1,2,3,4,5,6,7,8,9,10],
+      scores: [1,3,3,4,5,6,7,9,10,11],
     },
     {
       name: "Offset",
@@ -13,12 +13,12 @@ var friendsList = [
     {
       name: "Kulture",
       photo: "https://peopledotcom.files.wordpress.com/2018/12/kulture-cardi-b.jpg?w=768",
-      scores: [3,4,5,6,7,8,9,10,11,12],
+      scores: [3,3,5,6,6,7,9,10,11,11],
     },
     {
       name: "Henny",
       photo: "https://c8d8q6i8.stackpathcdn.com/wp-content/uploads/2018/05/Hennessy-Carolina-Contact-Information.jpg",
-      scores: [4,5,6,7,8,9,10,11,12,13],
+      scores: [3,5,6,7,6,9,9,11,11,13],
     }
   ];
   
